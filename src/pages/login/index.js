@@ -7,6 +7,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   Alert,
+  Linking,
 } from 'react-native';
 
 import firebase from './../../services/firebase';
@@ -132,11 +133,37 @@ export default class Login extends Component {
             </Text>
           </Botao>
           <TouchableOpacity
-            style={{marginTop: 20, opacity: 0.5, color: '#FFF'}}
+            style={{
+              marginTop: 15,
+              opacity: 0.5,
+              color: '#FFF',
+            }}
             onPress={() => {
               this.setState({visible: true});
             }}>
-            <Text style={{color: '#FFF'}}>ESQUECI A SENHA</Text>
+            <Text
+              style={{
+                textDecorationLine: 'underline',
+                color: '#FFF',
+                fontSize: 14,
+              }}>
+              ESQUECI A SENHA
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{marginTop: 2, color: '#FFF'}}
+            onPress={() => {
+              Linking.openURL('https://www.gustavotutuca.rio/gep');
+            }}>
+            <Text
+              style={{
+                color: '#FFF',
+                marginTop: 2,
+                fontSize: 16,
+                textDecorationLine: 'underline',
+              }}>
+              SOLICITAR ACESSO
+            </Text>
           </TouchableOpacity>
           <Portal>
             <Dialog visible={this.state.visible}>
